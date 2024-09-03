@@ -26,7 +26,11 @@ async def waypoints_generator():
 
 @app.get("/get-waypoints")
 async def root():
-    return StreamingResponse(waypoints_generator(), media_type="text/event-stream")
+    headers = {
+        "Cache-Control": "no-cache",
+        "X-Accel-Buffering": "no"
+    }
+    return StreamingResponse(waypoints_generator(), media_type="text/event-stream", headers=headers)
 
 
 if __name__ == "__main__":
