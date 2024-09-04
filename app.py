@@ -20,7 +20,7 @@ async def waypoints_generator():
     yield "data: First response\n\n"
     await sleep(40)
     yield "data: Second response\n\n"
-    await sleep(80)
+    await sleep(120)
     yield "data: Third response\n\n"
     yield "data: Last response\n\n"
 
